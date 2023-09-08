@@ -14,8 +14,8 @@ function playGame(playerMove) {
 
     const computerMove = toFindRockPaperScissor();
     document.querySelector('.js-moves').innerHTML=`You :
-<img src="/Rock-Paper-Scissor/Images/${playerMove}-emoji.png" class="move-icon">
-Computer : <img src="/Rock-Paper-Scissor/Images/${computerMove}-emoji.png" class="move-icon">`;
+<img src="/Images/${playerMove}-emoji.png" class="move-icon">
+Computer : <img src="/Images/${computerMove}-emoji.png" class="move-icon">`;
      
     if (computerMove === "Rock") {
       result = "Lost";
@@ -28,9 +28,9 @@ Computer : <img src="/Rock-Paper-Scissor/Images/${computerMove}-emoji.png" class
   else if (playerMove === "Paper") {
     const computerMove = toFindRockPaperScissor();
     document.querySelector('.js-moves').innerHTML=`You :
-<img src="/Rock-Paper-Scissor/Images/${playerMove}-emoji.png" class="move-icon">
-Computer : <img src="/Rock-Paper-Scissor/Images/${computerMove}-emoji.png" class="move-icon">`;
-
+<img src="/Images/${playerMove}-emoji.png" class="move-icon">
+Computer : <img src="/Images/${computerMove}-emoji.png" class="move-icon">`;
+  
     if (computerMove === "Rock") {
       result = "Won";
     } else if (computerMove === "Paper") {
@@ -42,9 +42,9 @@ Computer : <img src="/Rock-Paper-Scissor/Images/${computerMove}-emoji.png" class
   else {
     const computerMove = toFindRockPaperScissor();
     document.querySelector('.js-moves').innerHTML=`You :
-<img src="/Rock-Paper-Scissor/Images/${playerMove}-emoji.png" class="move-icon">
-Computer : <img src="/Rock-Paper-Scissor/Images/${computerMove}-emoji.png" class="move-icon">`;
-
+<img src="/Images/${playerMove}-emoji.png" class="move-icon">
+Computer : <img src="/Images/${computerMove}-emoji.png" class="move-icon">`;
+  
     if (computerMove === "Rock") {
       result = "Tied";
     } else if (computerMove === "Paper") {
