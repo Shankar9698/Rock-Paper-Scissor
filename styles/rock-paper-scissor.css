@@ -20,7 +20,7 @@ body{
 .move-icon {
   height: 50px;
 }
-.reset-score-button {
+.reset-score-button, .autoplay-button {
   background-color: white;
   color: black;
   border: none;

@@ -4,11 +4,57 @@ let score=JSON.parse(localStorage.getItem('score'))||{
   losses:0,
   tied:0
 };
-
-
 let result;
+document.body.addEventListener('keydown',(event)=>{
+  if(event.key==='r' || event.key==='R'){
+    playGame('Rock');
+  }
+  else if(event.key==='p' || event.key==='P') {
+    playGame('Paper');
+  }
+  else if(event.key==='s' || event.key==='S') {
+    playGame('Scissor');
+  }
+  else {
+  }
+});
+
+document.querySelector('.js-rock-button').addEventListener('click',()=>{
+  playGame('Rock');
+});
+document.querySelector('.js-paper-button').addEventListener('click',()=>{
+  playGame('Paper');
+});
+document.querySelector('.js-scissor-button').addEventListener('click',()=>{
+  playGame('Scissor');
+});
+document.querySelector('.js-reset-button').addEventListener('click',()=>{
+  score.wins=0;
+    score.losses=0;
+    score.tied=0;
+    localStorage.removeItem('score');
+    updateScoreElement();
+});
+let isAutoPlaying=false;
+let intervalId;
+document.querySelector('.js-autoplay-button').addEventListener('click',()=>{
+  if(!isAutoPlaying) {
+    intervalId=setInterval(function() {
+      let playerMove=toFindRockPaperScissor();
+      playGame(playerMove);
+    },1000);
+    isAutoPlaying=true;
+    document.querySelector('.js-autoplay-button').innerHTML='Stop';
+  }
+  else {
+    clearInterval(intervalId);
+    isAutoPlaying=false;
+    document.querySelector('.js-autoplay-button').innerHTML='Auto Play';
+    
+  }
+});
+
 function playGame(playerMove) {
-  
   updateScoreElement();
   if (playerMove === "Scissor") {
 
@@ -53,7 +99,15 @@ Computer : <img src="/Images/${computerMove}-emoji.png" class="move-icon">`;
       result = "Won";
     }
   }
-  document.querySelector('.js-result').innerHTML=result;
+  if(result==='Won') {
+  document.querySelector('.js-result').innerHTML=`<p style="color: #00FF00";>${result}</p>`;
+  }
+  else if(result==='Lost') {
+    document.querySelector('.js-result').innerHTML=`<p style="color:#FF0000";>${result}</p>`;
+  }
+  else {
+    document.querySelector('.js-result').innerHTML=result;
+  }
    
   if(result==='Won'){
     score.wins=score.wins+1;
@@ -85,3 +139,4 @@ updateScoreElement();
 function updateScoreElement(){
   document.querySelector('.js-score').innerHTML=`wins : ${score.wins} ; losses : ${score.losses} ; drawn : ${score.tied}`;
 }
+

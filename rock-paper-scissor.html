@@ -10,27 +10,24 @@
   <body>
     <p class="title">ROCK PAPER SCISSORS</p>
     <button
-      onclick="playGame('Rock');" class="move-button"><img src="/Images/rock-emoji.png" class="move-icon">
+       class="move-button js-rock-button"><img src="/Images/rock-emoji.png" class="move-icon">
     </button>
 
     <button
-      onclick="playGame('Paper');" class="move-button"><img src="/Images/paper-emoji.png" class="move-icon">
+       class="move-button js-paper-button"><img src="/Images/paper-emoji.png" class="move-icon">
     </button>
 
     <button
-      onclick="playGame('Scissor');" class="move-button"><img src="/Images/scissor-emoji.png" class="move-icon">
+       class="move-button js-scissor-button"><img src="/Images/scissor-emoji.png" class="move-icon">
     </button>
     <p class="js-result result"></p>
     <p class="js-moves">
     </p>
     <p class="js-score score"></p>
 
-    <button class="reset-score-button" onclick="
-    score.wins=0;
-    score.losses=0;
-    score.tied=0;
-    localStorage.removeItem('score');
-    updateScoreElement();">Reset Score</button>
+    <button class="reset-score-button js-reset-button"
+    >Reset Score</button>
+    <button class="autoplay-button js-autoplay-button">Auto Play</button>
     <script src="/scripts/rock-paper-scissor.js"></script>
   </body>
 </html>
